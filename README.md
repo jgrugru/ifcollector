@@ -17,15 +17,22 @@ For all boolean expressions and lamdas, the keyword __value__ will be used for t
 evaluated.
 
 ```python
-is_valid_str = [
-    str.isalnum,
+def matches_email_regex(value):
+    match_object = search(r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$',
+                          value)
+    return bool(match_object)
+
+is_valid_gmail = [
     "len(value) > 5",
-    "value == 'Testing'",
-    lambda value: value == 'Testing',
+    "'@' in value",
+    matches_email_regex,
+    "'gmail.com' in value"
 ]
 
-my_str = 'Testing'
-print(ifandstatement(my_str, *is_valid_str))
+my_email = "jeff.gruenbaum@gmail.com"
+
+if ifandstatement(my_email, *is_valid_gmail):
+    print("The email is valid!")
 ```
 Output:
-```True```
+```The email is valid!```
