@@ -17,14 +17,15 @@ For all boolean expressions and lamdas, the keyword __value__ will be used for t
 evaluated.
 
 ```python
-is_valid_test_str = [
+is_valid_str = [
     str.isalnum,
+    "len(value) > 5",
     "value == 'Testing'",
     lambda value: value == 'Testing',
 ]
 
 my_str = 'Testing'
-print(ifandstatement(my_str, *is_valid_test_str))
+print(ifandstatement(my_str, *is_valid_str))
 ```
 Output:
 ```True```
