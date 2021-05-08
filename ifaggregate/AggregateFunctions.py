@@ -3,11 +3,16 @@ def ifandstatement(value, *args, debug=False):
     if debug:
         print("ifandstatement(value=" + value + ")")
     result = True
-    for fn in args:
+    for expression in args:
         if result:
-            result = fn(value)
-            if debug:
-                print(fn.__name__, result)
+            if isinstance(expression, str):
+                result = eval(expression, {}, {'value': value})
+                if debug:
+                    print(expression, result)
+            else:
+                result = expression(value)
+                if debug:
+                    print(expression.__name__, result)
         else:
             break
     return result
@@ -28,7 +33,8 @@ def contains_at(value):
 is_valid = [
     str.isalnum,
     is_str,
-    contains_at
+    contains_at,
+    "value == 'IamastTring'",
 ]
 
 print(ifandstatement("IamastTring", *is_valid, debug=True))
