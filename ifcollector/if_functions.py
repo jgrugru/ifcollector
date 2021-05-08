@@ -11,6 +11,19 @@ def ifandstatement(value, *args, debug=False):
     return result
 
 
+def iforstatement(value, *args, debug=False):
+    if debug:
+        print("iforstatement(value=" + value + ", args=" + str(args) + ")")
+        print("------------------------------")
+    result = False
+    for expression in args:
+        if not result:
+            result = parse_expression(expression, value, debug)
+        else:
+            break
+    return result
+
+
 def parse_expression(expression, value, debug):
     if isinstance(expression, str):
         result = eval(expression,
