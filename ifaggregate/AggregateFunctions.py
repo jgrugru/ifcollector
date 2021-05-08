@@ -1,40 +1,25 @@
-
 def ifandstatement(value, *args, debug=False):
     if debug:
-        print("ifandstatement(value=" + value + ")")
+        print("ifandstatement(value=" + value + ", args=" + str(args) + ")")
+        print("------------------------------")
     result = True
     for expression in args:
         if result:
-            if isinstance(expression, str):
-                result = eval(expression, {}, {'value': value})
-                if debug:
-                    print(expression, result)
-            else:
-                result = expression(value)
-                if debug:
-                    print(expression.__name__, result)
+            result = parse_expression(expression, value, debug)
         else:
             break
     return result
 
-def is_str(value):
-    if isinstance(value, str):
-        return True
+
+def parse_expression(expression, value, debug):
+    if isinstance(expression, str):
+        result = eval(expression,
+                      {},
+                      {'value': value})  # pass value as a local var
+        if debug:
+            print(expression, "-->", result)
     else:
-        return False
-
-
-def contains_at(value):
-    if 'T' in value:
-        return True
-    else:
-        return False
-
-is_valid = [
-    str.isalnum,
-    is_str,
-    contains_at,
-    "value == 'IamastTring'",
-]
-
-print(ifandstatement("IamastTring", *is_valid, debug=True))
+        result = expression(value)
+        if debug:
+            print(expression.__name__, "-->", result)
+    return result
