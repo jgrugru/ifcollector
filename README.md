@@ -17,6 +17,10 @@ For all boolean expressions and lamdas, the keyword __value__ will be used for t
 evaluated.
 
 ```python
+from re import search
+from ifcollector import ifandstatement
+from ifcollector import iforstatement
+
 def matches_email_regex(value):
     match_object = search(r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$',
                           value)
