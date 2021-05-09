@@ -37,5 +37,5 @@ def parse_expression(expression, value, debug):
 
 
 def debug_intro(function_name, value, *args):
-    print(function_name + "(value=" + value + ", args=" + str(args) + ")")
+    print(function_name + "(value=" + str(value) + ", args=" + str(args) + ")")
     print("------------------------------")

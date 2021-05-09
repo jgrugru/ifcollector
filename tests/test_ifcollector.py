@@ -1,8 +1,8 @@
 from pytest import mark
 from re import search
 
-from ifcollector.if_functions import (ifandstatement,
-                                      iforstatement)
+from ifcollector import (ifandstatement,
+                         iforstatement)
 
 
 def matches_email_regex(value):
