@@ -22,7 +22,9 @@ is_valid_gmail = [
     "len(value) > 5",
     "'@' in value",
     matches_email_regex,
-    "'gmail.com' in value"
+    "'gmail.com' in value",
+    lambda value: bool(search(r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$',
+                              value))
 ]
 
 
