@@ -17,28 +17,31 @@ For all boolean expressions and lamdas, the keyword __value__ will be used for t
 evaluated.
 
 ```python
-from re import search
 from ifcollector import ifandstatement
-from ifcollector import iforstatement
 
-def matches_email_regex(value):
-    match_object = search(r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$',
-                          value)
-    return bool(match_object)
+def add_digits(n):
+    sum = 0
+    for digit in str(n):
+        sum += abs(int(digit))
+    return sum
 
-is_valid_gmail = [
-    "len(value) > 5",
-    "'@' in value",
-    matches_email_regex,
-    "'gmail.com' in value",
-    lambda value: bool(search(r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$',
-                              value))
+def do_digits_add_up_to_10(n):
+    return add_digits(n) == 10
+
+is_valid_input = [
+    "value in range(0, 100)",
+    do_digits_add_up_to_10,
+    lambda value: int(str(value)[0]) % 2 == 1  # is the first digit odd?
 ]
 
-my_email = "jeff.gruenbaum@gmail.com"
-
-if ifandstatement(my_email, *is_valid_gmail):
-    print("The email is valid!")
+if ifandstatement(73, *is_valid_input):
+    print("The input is valid!")
 ```
 Output:
-```The email is valid!```
+```The input is valid!```
+
+# Types of If Statements:
+### [ifandstatement](https://github.com/jgrugru/ifcollector/blob/main/ifcollector/if_functions.py#L1)(value, boolean_expressions)
+- Aggregates the boolean expressions with an _and_ operator.
+### [iforstatement](https://github.com/jgrugru/ifcollector/blob/main/ifcollector/if_functions.py#L13)(value, boolean_expressions)
+- Aggregates the boolean expressions with an _or_ operator.
