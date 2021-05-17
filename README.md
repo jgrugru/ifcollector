@@ -40,8 +40,14 @@ if ifandstatement(73, *is_valid_input):
 Output:
 ```The input is valid!```
 
+### Please Note:
+> If passing the boolean expressions in a list, you will need to use the [unpacking operator](https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/).
+
 # Types of If Statements:
 ### [ifandstatement](https://github.com/jgrugru/ifcollector/blob/main/ifcollector/if_functions.py#L1)(value, boolean_expressions)
 - Aggregates the boolean expressions with an _and_ operator.
+- Import into your python file with this statement:```from ifcollector import ifandstatement```.
 ### [iforstatement](https://github.com/jgrugru/ifcollector/blob/main/ifcollector/if_functions.py#L13)(value, boolean_expressions)
 - Aggregates the boolean expressions with an _or_ operator.
+- Import into your python file with this statement:```from ifcollector import iforstatement```.
+
