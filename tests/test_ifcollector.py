@@ -28,37 +28,21 @@ is_valid_gmail = [
 ]
 
 
-@mark.parametrize("value, expression_list, expected_result", [
-    ("Test String", is_valid_test_str, False),
-    ("Test ", is_valid_test_str, False),
-    ("Testing", is_valid_test_str, True),
-    ("Testing1", is_valid_test_str, False),
+@mark.parametrize("value, ifstatement, expression_list, expected_result", [
+    ("Test String", ifandstatement, is_valid_test_str, False),
+    ("Test ", ifandstatement, is_valid_test_str, False),
+    ("Testing", ifandstatement, is_valid_test_str, True),
+    ("Testing1", ifandstatement, is_valid_test_str, False),
+    ("Test String", iforstatement, is_valid_test_str, True),
+    ("Test ", iforstatement, is_valid_test_str, False),
+    ("Testing", iforstatement, is_valid_test_str, True),
+    ("Testing1", iforstatement, is_valid_test_str, True),
+    ("jeff.gruenbaum@gmail.com", ifandstatement, is_valid_gmail, True),
+    ("jeff.gruenbaum@yahoo.com", ifandstatement, is_valid_gmail, False),
+    ("@gmail.com", ifandstatement, is_valid_gmail, False),
+    (" @gmail.com", ifandstatement, is_valid_gmail, False),
 ])
-def test_ifandstatement(value, expression_list, expected_result):
-    assert ifandstatement(value,
-                          *expression_list,
-                          debug=True) == expected_result
-
-
-@mark.parametrize("value, expression_list, expected_result", [
-    ("Test String", is_valid_test_str, True),
-    ("Test ", is_valid_test_str, False),
-    ("Testing", is_valid_test_str, True),
-    ("Testing1", is_valid_test_str, True),
-])
-def test_iforstatement(value, expression_list, expected_result):
-    assert iforstatement(value,
-                         *expression_list,
-                         debug=True) == expected_result
-
-
-@mark.parametrize("value, expression_list, expected_result", [
-    ("jeff.gruenbaum@gmail.com", is_valid_gmail, True),
-    ("jeff.gruenbaum@yahoo.com", is_valid_gmail, False),
-    ("@gmail.com", is_valid_gmail, False),
-    (" @gmail.com", is_valid_gmail, False),
-])
-def test_email_input(value, expression_list, expected_result):
-    assert ifandstatement(value,
-                          *expression_list,
-                          debug=True) == expected_result
+def test_ifstatements(value, ifstatement, expression_list, expected_result):
+    assert ifstatement(value,
+                       *expression_list,
+                       debug=True) == expected_result

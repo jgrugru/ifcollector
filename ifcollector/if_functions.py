@@ -1,6 +1,6 @@
 def ifandstatement(value, *args, debug=False):
     if debug:
-        debug_intro("ifandstatement", value, args)
+        print_debug_intro("ifandstatement", value, args)
     result = True
     for expression in args:
         if result:
@@ -12,7 +12,7 @@ def ifandstatement(value, *args, debug=False):
 
 def iforstatement(value, *args, debug=False):
     if debug:
-        debug_intro("iforstatement", value, args)
+        print_debug_intro("iforstatement", value, args)
     result = False
     for expression in args:
         if not result:
@@ -36,6 +36,6 @@ def parse_expression(expression, value, debug):
     return result
 
 
-def debug_intro(function_name, value, *args):
+def print_debug_intro(function_name, value, *args):
     print(function_name + "(value=" + str(value) + ", args=" + str(args) + ")")
     print("------------------------------")
