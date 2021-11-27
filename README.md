@@ -46,7 +46,7 @@ if ifandstatement(inputted_list2, *is_list_valid_input):
 Output:
 ```The inputted_list2 is valid!```
 
-The expressions to evaluate against the value (the inputted_list) can be passed in an unpacked list or as individual expressions. AKA they can only be passed as individual expressions:
+The expressions to evaluate against the value (the inputted_list) can be passed as a list with the [unpacking operator](https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/) or as individual expressions. AKA they can only be passed as individual expressions:
 
 ```python
 ifandstatement(inputted_list, *is_list_valid_input)
@@ -58,7 +58,8 @@ is equivalent to
 ifandstatement(inputted_list, "len(value) < 6", do_numbers_add_up_to_10, are_all_values_digits)
 ```
 
-The conditionals that will be evaluated against a single value can be a function,
+#### Note:
+> The conditionals that will be evaluated against a single value can be a function,
 a boolean expression in the form of a string, or a lambda. For all boolean expressions and lamdas,
 the keyword __value__ will be used for the variable being evaluated.
 
@@ -85,9 +86,6 @@ if ifandstatement(73, *is_valid_input):
 ```
 Output:
 ```The input is valid!```
-
-### Please Note:
-> If passing the boolean expressions in a list, you will need to use the [unpacking operator](https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/).
 
 # Types of If Statements:
 ### [ifandstatement](https://github.com/jgrugru/ifcollector/blob/main/ifcollector/if_functions.py#L1)(value, boolean_expressions*)
