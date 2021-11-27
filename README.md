@@ -46,10 +46,17 @@ if ifandstatement(inputted_list2, *is_list_valid_input):
 Output:
 ```The inputted_list2 is valid!```
 
-To use it, create a list with all the conditionals that will be evaluated against a single value.
-The conditionals can be a function, a boolean expression in the form of a string, or a lambda.
-For all boolean expressions and lamdas, the keyword __value__ will be used for the variable being
-evaluated.
+The expressions to evaluate against the value (the inputted_list) can be passed in an unpacked list or as individual expressions, aka they can only be passed as individual expressions:
+
+```ifandstatement(inputted_list, *is_list_valid_input)```
+
+or
+
+```ifandstatement(inputted_list, "len(value) < 6", do_digits_add_up_to_10, are_all_values_digits)```
+
+The conditionals that will be evaluated against a single value can be a function,
+a boolean expression in the form of a string, or a lambda. For all boolean expressions and lamdas,
+the keyword __value__ will be used for the variable being evaluated.
 
 ```python
 from ifcollector import ifandstatement
