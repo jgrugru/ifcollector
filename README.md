@@ -10,7 +10,7 @@ pip install ifcollector
 
 Ifcollector allows you to smartly evaluate a list of functions/expressions againt a single value.
 
-Here is an example of how you would want to validate an inputted list:
+Here is an example of validating an inputted list:
 ```python
 from ifcollector import ifandstatement
 
@@ -48,11 +48,15 @@ Output:
 
 The expressions to evaluate against the value (the inputted_list) can be passed in an unpacked list or as individual expressions. AKA they can only be passed as individual expressions:
 
-```ifandstatement(inputted_list, *is_list_valid_input)```
+```python
+ifandstatement(inputted_list, *is_list_valid_input)
+```
 
 is equivalent to 
 
-```ifandstatement(inputted_list, "len(value) < 6", do_numbers_add_up_to_10, are_all_values_digits)```
+```python
+ifandstatement(inputted_list, "len(value) < 6", do_numbers_add_up_to_10, are_all_values_digits)
+```
 
 The conditionals that will be evaluated against a single value can be a function,
 a boolean expression in the form of a string, or a lambda. For all boolean expressions and lamdas,
