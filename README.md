@@ -46,11 +46,11 @@ if ifandstatement(inputted_list2, *is_list_valid_input):
 Output:
 ```The inputted_list2 is valid!```
 
-The expressions to evaluate against the value (the inputted_list) can be passed in an unpacked list or as individual expressions, aka they can only be passed as individual expressions:
+The expressions to evaluate against the value (the inputted_list) can be passed in an unpacked list or as individual expressions. AKA they can only be passed as individual expressions:
 
 ```ifandstatement(inputted_list, *is_list_valid_input)```
 
-or
+is equivalent to 
 
 ```ifandstatement(inputted_list, "len(value) < 6", do_digits_add_up_to_10, are_all_values_digits)```
 
