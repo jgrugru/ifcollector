@@ -1,5 +1,5 @@
 # ifcollector
-A better alternative to the any() and all() built-in python functions.
+A better alternative to the any() and all() built-in python functions. With ifcollector you are able to evaluate multiple functions against a value/object. Unlike the all() function, ifcollector will not evaluate every condition if the condition has already been met.
 
 # Install
 ```python
