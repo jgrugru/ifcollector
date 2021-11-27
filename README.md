@@ -14,7 +14,7 @@ Here is an example of how you would want to validate an inputted list:
 ```python
 from ifcollector import ifandstatement
 
-def do_digits_add_up_to_10(list_of_digits):
+def do_numbers_add_up_to_10(list_of_digits):
     total = 0
     for n in list_of_digits:
         total += n
@@ -30,7 +30,7 @@ def are_all_values_digits(list_of_digits):
 # list of checks against the inputted list
 is_list_valid_input = [
     "len(value) < 6",
-    do_digits_add_up_to_10,
+    do_numbers_add_up_to_10,
     are_all_values_digits,
     ]
 
@@ -52,7 +52,7 @@ The expressions to evaluate against the value (the inputted_list) can be passed 
 
 is equivalent to 
 
-```ifandstatement(inputted_list, "len(value) < 6", do_digits_add_up_to_10, are_all_values_digits)```
+```ifandstatement(inputted_list, "len(value) < 6", do_numbers_add_up_to_10, are_all_values_digits)```
 
 The conditionals that will be evaluated against a single value can be a function,
 a boolean expression in the form of a string, or a lambda. For all boolean expressions and lamdas,
