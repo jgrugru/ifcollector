@@ -46,7 +46,7 @@ if ifandstatement(inputted_list2, *is_list_valid_input):
 Output:
 ```The inputted_list2 is valid!```
 
-The expressions to evaluate against the value (the inputted_list) can be passed as a list with the [unpacking operator](https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/) or as individual expressions. AKA they can only be passed as individual expressions:
+The expressions to evaluate against the value (the inputted_list) can be passed as a list with the [unpacking operator](https://www.geeksforgeeks.org/packing-and-unpacking-arguments-in-python/) or as individual expressions.
 
 ```python
 ifandstatement(inputted_list, *is_list_valid_input)
